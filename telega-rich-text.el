@@ -25,6 +25,9 @@
 
 ;;; Code:
 (require 'telega-core)
+(require 'telega-i18n)
+(require 'telega-media)
+(require 'telega-util)
 
 (declare-function telega-webpage--add-anchor "telega-webpage" (name))
 
