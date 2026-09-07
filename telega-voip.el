@@ -38,6 +38,10 @@
 
 (declare-function telega-status--set "telega-root"
                   (conn-status &optional aux-status raw))
+(declare-function telega-chat-by "telega-chat" (pred))
+(declare-function telega-chat-group-call "telega-chat" (&optional chat))
+(declare-function telega-root-aux-redisplay "telega-root" (&optional item))
+(declare-function telega-root-view--update "telega-root" (on-update-prop &rest args))
 
 
 (defconst telega-voip-protocol

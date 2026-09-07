@@ -35,6 +35,27 @@
 
 (declare-function telega-chatbuf--name "telega-chat" (chat))
 (declare-function telega-chat--set-uaprops "telega-chat" (chat uaprops))
+(declare-function telega-custom-emoji--ensure "telega-emoji" (sticker))
+(declare-function telega-custom-emoji-get "telega-emoji" (custom-emoji-id))
+(declare-function telega-filter-chats "telega-filter" (chat-list &optional chat-temex))
+(declare-function telega-ins--box-button-delimiter "telega-ins" (bb-style prop-delim))
+(declare-function telega-ins--image "telega-ins" (img &optional slice-num &rest props))
+(declare-function telega-ins--text-button "telega-ins" (label &rest props))
+(declare-function telega--gen-ins-continuation-callback "telega-util" (show-loading-p
+                                              &optional insert-func
+                                              for-param))
+(declare-function telega-box-button--bracket-image "telega-util" (style bracket-prop
+                                               &optional bracket-spec))
+(declare-function telega-completing-read-chat-list "telega-util" (prompt &optional chats-list
+                                                sort-criteria))
+(declare-function telega-completing-read-folder "telega-util" (prompt &optional folder-names))
+(declare-function telega-completing-read-folder-icon-name "telega-util" (prompt &optional initial-input))
+(declare-function telega-completing-read-folder-list "telega-util" (prompt &optional folder-names))
+(declare-function telega-fmt-text "telega-util" (text &optional entity-type))
+(declare-function telega-fmt-text-desurrogate "telega-util" (fmt-text))
+(declare-function telega-msg-sender-title-for-completion "telega-util" (msg-sender))
+(declare-function telega-symbol "telega-util" (ending &optional image))
+(declare-function telega-symbol-emojify "telega-util" (emoji &optional image-spec))
 
 
 (defconst telega-folder-icon-names

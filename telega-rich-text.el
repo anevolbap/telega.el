@@ -30,6 +30,19 @@
 (require 'telega-util)
 
 (declare-function telega-webpage--add-anchor "telega-webpage" (name))
+(declare-function telega-custom-emoji--image "telega-emoji" (obj &key (prop-name :custom_emoji_id)
+                                          (cheight 1)
+                                          alt-text))
+(declare-function telega-ins--audio "telega-ins" (msg &optional audio how music-symbol))
+(declare-function telega-ins--date "telega-ins" (timestamp &optional fmt-type))
+(declare-function telega-ins--image "telega-ins" (img &optional slice-num &rest props))
+(declare-function telega-ins--image-slices "telega-ins" (image &optional props slice-func))
+(declare-function telega-ins--photo "telega-ins" (photo &optional msg limits show-details))
+(declare-function telega-ins--video "telega-ins" (msg &optional video how))
+(declare-function telega-ins--voice-note "telega-ins" (msg &optional voice-note))
+(declare-function telega-browse-url "telega-webpage" (url &optional in-web-browser))
+(declare-function telega-webpage--ins-animation "telega-webpage" (animation))
+(declare-function telega-webpage-goto-anchor "telega-webpage" (name))
 
 
 (defvar telega-rich-text--block-quote-p nil

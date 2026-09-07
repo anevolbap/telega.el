@@ -38,6 +38,8 @@
 
 (declare-function telega-chat--info "telega-chat" (chat))
 (declare-function telega-chat-title "telega-chat" (chat &optional fmt-type no-badges))
+(declare-function telega-chat-user "telega-chat" (chat))
+(declare-function telega--full-info "telega-info" (tlobj &optional _callback))
 
 (defvar telega-sort-criteria-alist nil)
 (defvar telega-sort--inhibit-order nil

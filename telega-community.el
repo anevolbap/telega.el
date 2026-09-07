@@ -29,6 +29,9 @@
 (require 'telega-media)
 (require 'telega-util)
 
+;; Forward declarations.
+(declare-function telega-ins--image "telega-ins" (img &optional slice-num &rest props))
+
 (defun telega-community-get (cid)
   "Get community by community id CID."
   (alist-get cid telega--communities-alist))

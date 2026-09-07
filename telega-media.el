@@ -39,6 +39,36 @@
 (declare-function telega-msg-redisplay "telega-msg" (msg))
 
 (declare-function telega-image-view-file "telega-modes" (tl-file &optional for-msg))
+(declare-function telega-msg-chat "telega-msg" (msg &optional offline-p))
+(declare-function telega-msg-sender "telega-msg" (tl-obj))
+(declare-function telega-msg-sender-initials "telega-msg" (msg-sender))
+(declare-function telega-msg-sender-palette "telega-msg" (msg-sender))
+(declare-function telega-msg-sender-title "telega-msg" (msg-sender &rest args))
+(declare-function telega-msg-sender-title-faces "telega-msg" (msg-sender &optional palette))
+(declare-function telega-user-me "telega-user" (&optional locally-p))
+(declare-function telega-chars-in-height "telega-util" (pixels))
+(declare-function telega-chars-in-width "telega-util" (pixels))
+(declare-function telega-chars-xheight "telega-util" (n))
+(declare-function telega-chars-xwidth "telega-util" (n))
+(declare-function telega-color-name-as-hex-2digits "telega-util" (color))
+(declare-function telega-create-image "telega-util" (file-or-data &optional type data-p &rest props))
+(declare-function telega-directory-base-uri "telega-util" (directory))
+(declare-function telega-location-distance "telega-util" (loc1 loc2 &optional components-p))
+(declare-function telega-open-file "telega-util" (filename &optional msg))
+(declare-function telega-photo-preview--create-svg-one-line "telega-util" (filename data-p width height
+                                                           &optional video-p))
+(declare-function telega-svg-clip-path "telega-util" (svg id))
+(declare-function telega-svg-create "telega-util" (width height &rest args))
+(declare-function telega-svg-embed "telega-util" (svg image img-type datap &rest args))
+(declare-function telega-svg-embed-image-fitting "telega-util" (svg filename data-p img-width img-height
+                                           &rest embed-attrs))
+(declare-function telega-svg-gradient "telega-util" (svg id type stops))
+(declare-function telega-svg-image "telega-util" (svg &rest props))
+(declare-function telega-svg-path "telega-util" (svg d &rest args))
+(declare-function telega-svg-progress "telega-util" (svg progress &optional with-border-p))
+(declare-function telega-svg-white-play-triangle-in-circle "telega-util" (svg))
+(declare-function telega-time-seconds "telega-util" (&optional as-is))
+(declare-function telega-video-preview--create-svg-one-line "telega-util" (filename data-p width height))
 
 
 ;;; Files downloading/uploading

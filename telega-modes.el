@@ -41,6 +41,19 @@
 (declare-function telega-account-current "telega")
 (declare-function telega "telega" (&optional arg))
 (declare-function telega-kill "telega" (force))
+(declare-function telega-chat--info "telega-chat" (chat &optional locally-p))
+(declare-function telega-chat-buffer-auto-fill "telega-chat" (&optional win))
+(declare-function telega-chat-get "telega-chat" (chat-id &optional offline-p))
+(declare-function telega-chat-private-p "telega-chat" (chat))
+(declare-function telega-chatbuf--name "telega-chat" (chat))
+(declare-function telega-chatbuf--prompt-update "telega-chat" (&optional reset-aux))
+(declare-function telega-switch-important-chat "telega-chat" (chat))
+(declare-function telega-custom-emoji--ids-for-msg "telega-emoji" (msg &optional where))
+(declare-function telega-custom-emoji-get "telega-emoji" (custom-emoji-id))
+(declare-function telega--full-info "telega-info" (tlobj &optional _callback))
+(declare-function telega-describe-proxies "telega-info" (&rest _ignored))
+(declare-function telega-proxy-enabled "telega-info" (&optional added-proxies))
+(declare-function telega-proxy-last-used "telega-info" (&optional added-proxies))
 
 (defgroup telega-modes nil
   "Customization for telega minor modes."

@@ -36,6 +36,11 @@
 (declare-function telega-status--set "telega-root" (conn-status &optional aux-status raw))
 
 (declare-function telega-appindicator--on-event "telega-modes" (event))
+(declare-function telega-filters--redisplay "telega-filter" ())
+(declare-function telega--getOption "telega-tdlib" (prop-kw &optional callback))
+(declare-function telega-docker--container-id-filename "telega-util" ())
+(declare-function telega-docker-run-cmd "telega-util" (cmd &rest volumes))
+(declare-function telega-time-seconds "telega-util" (&optional as-is))
 
 
 (defun telega--on-event (event)
