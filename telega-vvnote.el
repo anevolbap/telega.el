@@ -29,11 +29,9 @@
 (require 'telega-ffplay)
 (require 'telega-util)                  ;`with-telega-symbol-animate'
 (require 'telega-ins)
+(require 'telega-decls)
 
-;; Forward declarations.
-(declare-function telega-msg-redisplay "telega-chat" (msg &optional node))
-(declare-function telega-msg-for-interactive "telega-msg" ())
-(declare-function telega-msg-open-content "telega-msg" (msg &optional clicked-p))
+(telega-declare-functions telega-vvnote)
 
 (defcustom telega-vvnote-voice-max-dur (* 30 60)
   "Maximum duration of voice command in seconds."

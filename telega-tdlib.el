@@ -26,6 +26,7 @@
 ;;; Code:
 (require 'telega-core)
 (require 'telega-server)
+(require 'telega-decls)
 
 (declare-function telega-chat-get "telega-chat" (chat-id &optional offline-p))
 (declare-function telega-chat--ensure "telega-chat" (chat))
@@ -33,16 +34,7 @@
 (declare-function telega-stickerset--ensure "telega-sticker" (sset))
 (declare-function telega-user-get "telega-user" (user-id))
 (declare-function telega-file--ensure "telega-media" (file))
-(declare-function telega-chat-secret-p "telega-chat" (chat))
-(declare-function telega-custom-emoji--ensure "telega-emoji" (sticker))
-(declare-function telega-i18n "telega-i18n" (key &rest args))
-(declare-function telega-msg-p "telega-msg" (obj))
-(declare-function telega-msg-sender "telega-msg" (tl-obj))
-(declare-function telega-chat-notification-scope "telega-notifications" (scope-type))
-(declare-function telega-story--ensure "telega-story" (story &optional no-root-update))
-(declare-function telega-topic-id "telega-topic" (topic))
-(declare-function telega-fmt-text "telega-util" (text &optional entity-type))
-(declare-function telega-time-seconds "telega-util" (&optional as-is))
+(telega-declare-functions telega-tdlib)
 
 (defvar telega-version)
 (defvar telega-app)

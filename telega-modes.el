@@ -41,19 +41,7 @@
 (declare-function telega-account-current "telega")
 (declare-function telega "telega" (&optional arg))
 (declare-function telega-kill "telega" (force))
-(declare-function telega-chat--info "telega-chat" (chat &optional locally-p))
-(declare-function telega-chat-buffer-auto-fill "telega-chat" (&optional win))
-(declare-function telega-chat-get "telega-chat" (chat-id &optional offline-p))
-(declare-function telega-chat-private-p "telega-chat" (chat))
-(declare-function telega-chatbuf--name "telega-chat" (chat))
-(declare-function telega-chatbuf--prompt-update "telega-chat" (&optional reset-aux))
-(declare-function telega-switch-important-chat "telega-chat" (chat))
-(declare-function telega-custom-emoji--ids-for-msg "telega-emoji" (msg &optional where))
-(declare-function telega-custom-emoji-get "telega-emoji" (custom-emoji-id))
-(declare-function telega--full-info "telega-info" (tlobj &optional _callback))
-(declare-function telega-describe-proxies "telega-info" (&rest _ignored))
-(declare-function telega-proxy-enabled "telega-info" (&optional added-proxies))
-(declare-function telega-proxy-last-used "telega-info" (&optional added-proxies))
+(telega-declare-functions telega-modes)
 
 (defgroup telega-modes nil
   "Customization for telega minor modes."
@@ -757,6 +745,7 @@ squashing is not applied."
 ;; To view high resolution image in chatbuf with ~telega-image-mode~
 ;; press {{{kbd(RET)}}} on the message with photo.
 (require 'image-mode)
+(require 'telega-decls)
 
 (declare-function telega-chat-title "telega-chat" (chat &optional fmt-type no-badges))
 (declare-function telega-chatbuf--next-msg "telega-chat" (msg msg-temex &optional backward))

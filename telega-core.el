@@ -32,6 +32,7 @@
 (require 'rx)
 
 (require 'telega-customize)
+(require 'telega-decls)
 
 (declare-function telega-chat--info "telega-chat" (chat))
 (declare-function telega-window-recenter "telega-util" (win &optional nlines from-point))
@@ -40,22 +41,7 @@
 (declare-function telega-chars-xwidth "telega-util" (n))
 (declare-function telega-em-width-ratio "telega-util")
 (declare-function telega-em-height-ratio "telega-util")
-(declare-function telega-custom-emoji--ensure "telega-emoji" (sticker))
-(declare-function telega-custom-emoji-get "telega-emoji" (custom-emoji-id))
-(declare-function telega-folder-name "telega-folders" (folder &optional no-properties))
-(declare-function telega--MessageTopic "telega-tdlib" (topic))
-(declare-function telega--getCustomEmojiStickers "telega-tdlib" (custom-emoji-ids &optional callback))
-(declare-function telega--change-text-property "telega-util" (start end prop value how &optional object))
-(declare-function telega--fmt-text-faces "telega-util" (fmt-text &optional _for-msg))
-(declare-function telega--split-by-text-prop "telega-util" (string prop &optional value-predicate))
-(declare-function telega-color-name-set-saturation-light "telega-util" (color-name saturation light))
-(declare-function telega-duration-human-readable "telega-util" (seconds &optional n long-p))
-(declare-function telega-stipple--box-button-body-gen "telega-util" (style))
-(declare-function telega-stipple-create "telega-util" (w h))
-(declare-function telega-stipple-fill-by-predicate "telega-util" (s predicate &optional no-cache-p))
-(declare-function telega-symbol "telega-util" (ending &optional image))
-(declare-function telega-time-seconds "telega-util" (&optional as-is))
-(declare-function telega-x-frame "telega-util" ())
+(telega-declare-functions telega-core)
 
 (defvar telega--lib-directory nil
   "The directory from where this library was first loaded.")

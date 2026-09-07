@@ -39,13 +39,13 @@
 (require 'telega-ins)
 (require 'telega-msg)
 (require 'telega-user)
+(require 'telega-decls)
 
 (declare-function telega-chat--type "telega-chat" (chat))
 (declare-function telega-chat-get "telega-chat" (chat-id &optional offline-p))
 (declare-function telega-chat-title "telega-chat" (chat &optional fmt-type no-badges))
 (declare-function telega-chat-muted-p "telega-chat" (chat))
-(declare-function telega-chatbuf--msg-observable-p "telega-chat" (msg &optional node))
-(declare-function telega-describe-chat "telega-chat" (chat))
+(telega-declare-functions telega-notifications)
 
 
 (defvar telega-notifications--last-id nil

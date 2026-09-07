@@ -27,34 +27,12 @@
 (require 'telega-tdlib)
 (require 'telega-i18n)
 (require 'telega-media)
+(require 'telega-decls)
 
 (declare-function telega-chat-get "telega-chat" (chat-id &optional offline-p))
 (declare-function telega-chat-user "telega-chat" (chat))
 (declare-function telega-chat--pop-to-buffer "telega-chat" (chat))
-(declare-function telega-emoji-status--animate "telega-emoji" (emoji-status))
-(declare-function telega-ins--emoji-status "telega-emoji" (emoji-status))
-(declare-function telega--full-info "telega-info" (tlobj &optional _callback))
-(declare-function telega--info "telega-info" (tlobj-type tlobj-id &optional locally-p))
-(declare-function telega-info--insert-user "telega-info" (user &optional chat))
-(declare-function telega-ins--chat-member "telega-ins" (member))
-(declare-function telega-ins--contact "telega-ins" (contact &key
-                                       (with-avatar-p t)
-                                       (with-title-faces-p t)
-                                       (with-online-status-p t)
-                                       (with-username-p t)
-                                       (with-phone-p t)))
-(declare-function telega-ins--image "telega-ins" (img &optional slice-num &rest props))
-(declare-function telega-ins--user "telega-ins" (user &optional member show-phone-p))
-(declare-function telega-msg-sender--verification-badges "telega-msg" (v-status))
-(declare-function telega-msg-sender-block "telega-msg" (msg-sender &optional callback))
-(declare-function telega-msg-sender-title "telega-msg" (msg-sender &rest args))
-(declare-function telega-msg-sender-unblock "telega-msg" (msg-sender &optional callback))
-(declare-function telega-msg-sender-username "telega-msg" (msg-sender &optional with-prefix-p))
-(declare-function telega-chats-compare "telega-sort" (criteria chat1 chat2))
-(declare-function telega-box-button--bracket-image "telega-util" (style bracket-prop
-                                               &optional bracket-spec))
-(declare-function telega-completing-read-user "telega-util" (prompt &optional users))
-(declare-function telega-symbol "telega-util" (ending &optional image))
+(telega-declare-functions telega-user)
 
 
 (defvar telega-user-button-map

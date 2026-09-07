@@ -45,6 +45,7 @@
 (require 'telega-folders)
 (require 'telega-i18n)
 (require 'telega-user)
+(require 'telega-decls)
 
 (declare-function telega-root--buffer "telega-root")
 (declare-function telega-chatbuf--name "telega-chat" (chat))
@@ -55,44 +56,7 @@
 (declare-function telega-user> "telega-user" (user1 user2))
 
 (declare-function telega-match-p "telega-match-p" (object temex))
-(declare-function telega-chat--supergroup "telega-chat")
-(declare-function telega-chat-create "telega-chat" (chat-type))
-(declare-function telega-chat-topics "telega-chat" (chat))
-(declare-function telega-chat-user "telega-chat" (chat))
-(declare-function telega-chatbuf-filter-hashtag "telega-chat" (hashtag &optional by-sender-p))
-(declare-function telega-custom-emoji-choose "telega-emoji" (&optional custom-action))
-(declare-function telega-custom-emoji-get "telega-emoji" (custom-emoji-id))
-(declare-function telega-emoji--image-cache-get "telega-emoji" (emoji cheight))
-(declare-function telega-emoji--image-cache-put "telega-emoji" (emoji cheight image))
-(declare-function telega-emoji-create-svg "telega-emoji" (emoji &optional cheight no-cache-p))
-(declare-function telega-emoji-name "telega-emoji" (emoji))
-(declare-function telega-filter-chats "telega-filter" (chat-list &optional chat-temex))
-(declare-function telega--full-info "telega-info" (tlobj &optional _callback))
-(declare-function telega-ins--chat "telega-ins" (chat))
-(declare-function telega-ins--date-time-formatting "telega-ins" (timestamp ts-fmt))
-(declare-function telega-ins--image "telega-ins" (img &optional slice-num &rest props))
-(declare-function telega-ins--msg-sender "telega-ins" (msg-sender &key
-                                             with-title
-                                             with-avatar-p
-                                             with-username-p
-                                             with-brackets-p
-                                             (with-badges-p t)
-                                             (with-title-faces-p t)
-                                             with-palette
-                                             trail-inserter))
-(declare-function telega-ins--topic-title "telega-ins" (topic &key with-icon-p with-maybe-pin-p
-                                         (with-brackets-p t)))
-(declare-function telega-describe-msg-sender "telega-msg" (sender))
-(declare-function telega-msg-at "telega-msg" (&optional pos msg-predicate))
-(declare-function telega-msg-blockquote-expand-toggle "telega-msg" (msg))
-(declare-function telega-msg-chat "telega-msg" (msg &optional offline-p))
-(declare-function telega-msg-open-media-timestamp "telega-msg" (msg timestamp &optional error-p))
-(declare-function telega-msg-sender "telega-msg" (tl-obj))
-(declare-function telega-msg-sender-palette "telega-msg" (msg-sender))
-(declare-function telega-msg-text-spoiler-toggle "telega-msg" (msg))
-(declare-function telega-sort-chats "telega-sort" (criteria chats))
-(declare-function telega-sticker--image "telega-sticker" (sticker &optional image-create-fun cache-prop))
-(declare-function telega-tme-open-tdlib-link "telega-tme" (tdlib-link))
+(telega-declare-functions telega-util)
 
 
 

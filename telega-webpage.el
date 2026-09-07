@@ -37,7 +37,8 @@
 (require 'telega-tme)
 (require 'telega-sticker)
 (require 'telega-customize)
-(declare-function telega-animation--ffplay-callback "telega-msg" (_proc frame anim))
+(require 'telega-decls)
+(telega-declare-functions telega-webpage)
 
 (defvar telega-webpage-history nil
   "History of viewed webpages.")

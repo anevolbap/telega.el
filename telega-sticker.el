@@ -33,6 +33,7 @@
 (require 'telega-ffplay)
 (require 'telega-i18n)
 (require 'telega-user)
+(require 'telega-decls)
 
 ;; shutup compiler
 (defvar ido-matches)
@@ -42,16 +43,7 @@
 
 (declare-function telega-chatbuf-sticker-insert "telega-chat" (sticker))
 (declare-function telega-chatbuf-animation-insert "telega-chat" (animation))
-(declare-function telega-chatbuf-custom-emoji-insert "telega-chat" (sticker &optional emoji))
-(declare-function telega-msg-redisplay "telega-chat" (msg &optional node))
-(declare-function telega-custom-emoji-from-sticker "telega-emoji" (sticker))
-(declare-function telega-custom-emoji-sticker-p "telega-emoji" (sticker))
-(declare-function telega-emoji-backward "telega-emoji" ())
-(declare-function telega-emoji-fe0f-p "telega-emoji" (emoji))
-(declare-function telega-emoji-name "telega-emoji" (emoji))
-(declare-function telega-ins--image "telega-ins" (img &optional slice-num &rest props))
-(declare-function telega-ins--image-slices "telega-ins" (image &optional props slice-func))
-(declare-function telega-animation--ffplay-callback "telega-msg" (_proc frame anim))
+(telega-declare-functions telega-sticker)
 
 
 (defvar telega-help-win--emoji nil

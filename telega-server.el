@@ -28,6 +28,7 @@
 
 (require 'telega-core)
 (require 'telega-customize)
+(require 'telega-decls)
 
 (declare-function telega-chats-dirty--update "telega-tdlib-events")
 
@@ -36,11 +37,7 @@
 (declare-function telega-status--set "telega-root" (conn-status &optional aux-status raw))
 
 (declare-function telega-appindicator--on-event "telega-modes" (event))
-(declare-function telega-filters--redisplay "telega-filter" ())
-(declare-function telega--getOption "telega-tdlib" (prop-kw &optional callback))
-(declare-function telega-docker--container-id-filename "telega-util" ())
-(declare-function telega-docker-run-cmd "telega-util" (cmd &rest volumes))
-(declare-function telega-time-seconds "telega-util" (&optional as-is))
+(telega-declare-functions telega-server)
 
 
 (defun telega--on-event (event)

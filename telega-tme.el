@@ -36,6 +36,7 @@
 (require 'telega-transient)
 (require 'telega-filter)
 (require 'telega-story)
+(require 'telega-decls)
 
 ;; telega-chat.el depends on telega-tme.el
 (declare-function telega-chat-get "telega-chat" (chat-id &optional offline-p))
@@ -46,15 +47,7 @@
 
 (declare-function telega-webpage--instant-view "telega-webpage" (url &optional sitename instant-view))
 (declare-function telega-browse-url "telega-webpage" (url &optional in-web-browser))
-(declare-function telega-chat--goto-thread "telega-chat" (chat thread-id &optional reply-msg-id))
-(declare-function telega-chat-bot-p "telega-chat" (chat))
-(declare-function telega-chat-user "telega-chat" (chat))
-(declare-function telega-chatbuf--chat-update "telega-chat" (&rest dirtiness))
-(declare-function telega-chat-username "telega-msg")
-(declare-function telega-msg-at "telega-msg" (&optional pos msg-predicate))
-(declare-function telega-msg-get "telega-msg" (chat msg-id &optional callback))
-(declare-function telega-msg-goto-highlight "telega-msg" (msg))
-(declare-function telega-msg-open-content "telega-msg" (msg &optional clicked-p))
+(telega-declare-functions telega-tme)
 
 
 (defun telega-tme--media-timestamp-callback (media-timestamp-str)

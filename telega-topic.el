@@ -30,44 +30,13 @@
 (require 'telega-core)
 (require 'telega-i18n)
 (require 'telega-tdlib)
+(require 'telega-decls)
 
 (declare-function telega-chat--mark-dirty "telega-tdlib-events" (chat &optional event))
 (declare-function telega-chat-get "telega-chat" (chat-id &optional offline-p))
 (declare-function telega--getForumTopic "telega-tdlib" (chat forum-topic-id &optional callback))
 (declare-function telega-topic-button-action "telega-root" (topic))
-(declare-function telega-chat--pop-to-buffer "telega-chat" (chat &optional no-history-load))
-(declare-function telega-chatbuf--get-create "telega-chat" (chat &optional no-history-load))
-(declare-function telega-chatbuf-filter-by-topic "telega-chat" (topic &optional start-msg-id))
-(declare-function telega-custom-emoji--ensure "telega-emoji" (sticker))
-(declare-function telega-custom-emoji-get "telega-emoji" (custom-emoji-id))
-(declare-function telega-ins--chat "telega-ins" (chat))
-(declare-function telega-ins--date "telega-ins" (timestamp &optional fmt-type))
-(declare-function telega-ins--msg-sender "telega-ins" (msg-sender &key
-                                             with-title
-                                             with-avatar-p
-                                             with-username-p
-                                             with-brackets-p
-                                             (with-badges-p t)
-                                             (with-title-faces-p t)
-                                             with-palette
-                                             trail-inserter))
-(declare-function telega-ins--topic-title "telega-ins" (topic &key with-icon-p with-maybe-pin-p
-                                         (with-brackets-p t)))
-(declare-function telega-msg-chat "telega-msg" (msg &optional offline-p))
-(declare-function telega-msg-for-interactive "telega-msg" ())
-(declare-function telega-msg-sender "telega-msg" (tl-obj))
-(declare-function telega-msg-sender-brackets "telega-msg" (msg-sender))
-(declare-function telega-chat-notification-setting "telega-notifications" (chat setting &optional topic))
-(declare-function telega-chat-button-action "telega-root" (chat))
-(declare-function telega-sticker--image "telega-sticker" (sticker &optional image-create-fun cache-prop))
-(declare-function telega-chars-xheight "telega-util" (n))
-(declare-function telega-chars-xwidth "telega-util" (n))
-(declare-function telega-color-name-as-hex-2digits "telega-util" (color))
-(declare-function telega-link-props "telega-util" (link-type link-to &rest props))
-(declare-function telega-svg-create "telega-util" (width height &rest args))
-(declare-function telega-svg-forum-topic-icon "telega-util" (svg width &rest args))
-(declare-function telega-svg-image "telega-util" (svg &rest props))
-(declare-function telega-symbol "telega-util" (ending &optional image))
+(telega-declare-functions telega-topic)
 
 (defvar telega-topic--default-icons nil
   "Cached list of topic icons which can be used by all users.")

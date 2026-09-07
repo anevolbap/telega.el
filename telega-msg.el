@@ -39,6 +39,7 @@
 (require 'telega-webpage)
 (require 'telega-story)
 (require 'telega-transient)
+(require 'telega-decls)
 
 (declare-function telega-root-view--update "telega-root" (on-update-prop &rest args))
 (declare-function telega-chat-get "telega-chat" (chat-id &optional offline-p))
@@ -55,28 +56,7 @@
 (declare-function telega-chat--pop-to-buffer "telega-chat" (chat))
 
 (declare-function telega--full-info "telega-info" (tlobj &optional _callback))
-(declare-function telega-chat--goto-thread "telega-chat" (chat thread-id &optional reply-msg-id))
-(declare-function telega-chat--info "telega-chat" (chat &optional locally-p))
-(declare-function telega-chat--supergroup "telega-chat")
-(declare-function telega-chat-channel-p "telega-chat" (chat))
-(declare-function telega-chat-me "telega-chat" (&optional can-create-p))
-(declare-function telega-chat-member-my-permissions "telega-chat" (chat))
-(declare-function telega-chat-user "telega-chat" (chat))
-(declare-function telega-chatbuf--gen-input-file "telega-chat" (filename &optional file-type
-                                                preview-p upload-ahead-callback))
-(declare-function telega-chatbuf--goto-msg "telega-chat" (msg-id &optional highlight-p callback))
-(declare-function telega-chatbuf--goto-msg-content "telega-chat" (&optional text-position))
-(declare-function telega-chatbuf--last-msg "telega-chat" ())
-(declare-function telega-chatbuf--last-read-inbox-msg-id "telega-chat" ())
-(declare-function telega-chatbuf--msg-observable-p "telega-chat" (msg &optional node))
-(declare-function telega-chatbuf-msg--pp "telega-chat" (msg &optional for-preview-p))
-(declare-function telega-describe-chat "telega-chat" (chat))
-(declare-function telega-custom-emoji--ids-for-msg "telega-emoji" (msg &optional where))
-(declare-function telega-custom-emoji-get "telega-emoji" (custom-emoji-id))
-(declare-function telega-custom-emoji-id "telega-emoji" (sticker))
-(declare-function telega-custom-emoji-sticker-p "telega-emoji" (sticker))
-(declare-function telega-ins--custom-emoji-stickersets "telega-emoji" (custom-action))
-(declare-function telega-edit-file-save-buffer "telega-modes" ())
+(telega-declare-functions telega-msg)
 
 
 ;; Menu for right-mouse on message

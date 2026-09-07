@@ -32,14 +32,14 @@
 (require 'telega-msg)
 (require 'telega-user)
 (require 'telega-util)
+(require 'telega-decls)
 
 
 (declare-function telega-root-view--redisplay "telega-root")
 
 (declare-function telega-chat--info "telega-chat" (chat))
 (declare-function telega-chat-title "telega-chat" (chat &optional fmt-type no-badges))
-(declare-function telega-chat-user "telega-chat" (chat))
-(declare-function telega--full-info "telega-info" (tlobj &optional _callback))
+(telega-declare-functions telega-sort)
 
 (defvar telega-sort-criteria-alist nil)
 (defvar telega-sort--inhibit-order nil

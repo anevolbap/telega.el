@@ -35,13 +35,11 @@
 (require 'telega-msg)
 (require 'telega-user)
 (require 'telega-util)
+(require 'telega-decls)
 
 (declare-function telega-status--set "telega-root"
                   (conn-status &optional aux-status raw))
-(declare-function telega-chat-by "telega-chat" (pred))
-(declare-function telega-chat-group-call "telega-chat" (&optional chat))
-(declare-function telega-root-aux-redisplay "telega-root" (&optional item))
-(declare-function telega-root-view--update "telega-root" (on-update-prop &rest args))
+(telega-declare-functions telega-voip)
 
 
 (defconst telega-voip-protocol
