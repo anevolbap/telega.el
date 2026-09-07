@@ -393,6 +393,60 @@ Each entry is (MODULE (FUNCTION FILE [ARGLIST]) ...)."))
                   `(declare-function ,(nth 0 d) ,(nth 1 d) ,@(cddr d)))
                 (cdr (assq module telega--forward-declarations)))))
 
+(defun telega-decls--definition (fn file)
+  "Find how FN is defined in FILE.
+Return (ARGLIST) for a definition written with an argument list,
+`aliased' for one made with `defalias', or nil when FN is not found."
+  (let ((path (locate-library (symbol-name file))))
+    (when (and path (string-suffix-p ".elc" path))
+      (setq path (substring path 0 -1)))
+    (when (and path (file-exists-p path))
+      (with-temp-buffer
+        (insert-file-contents path)
+        (emacs-lisp-mode)
+        (goto-char (point-min))
+        (cond
+         ((re-search-forward
+           (concat "^\\s-*(\\(?:cl-\\)?\\(?:defun\\|defsubst\\|defmacro\\|define-inline\\)\\s-+"
+                   (regexp-quote (symbol-name fn)) "\\s-")
+           nil t)
+          (skip-chars-forward " \t\n")
+          (when (looking-at "(")
+            (list (car (read-from-string
+                        (buffer-substring-no-properties
+                         (point) (progn (forward-sexp 1) (point))))))))
+         ((save-excursion
+            (goto-char (point-min))
+            (re-search-forward (concat "^\\s-*(defalias\\s-+'"
+                                       (regexp-quote (symbol-name fn)) "\\_>")
+                               nil t))
+          'aliased))))))
+
+(defun telega-decls-check ()
+  "Check every entry in `telega--forward-declarations'.
+Return a list of human readable problems, empty when all entries
+match the sources they name.  Run it after moving or renaming a
+function that other telega files declare."
+  (interactive)
+  (let (problems)
+    (dolist (entry telega--forward-declarations)
+      (dolist (decl (cdr entry))
+        (let* ((fn (nth 0 decl))
+               (file (intern (nth 1 decl)))
+               (declared (nth 2 decl))
+               (found (telega-decls--definition fn file)))
+          (cond
+           ((null found)
+            (push (format "%s: %s is not defined in %s" (car entry) fn file)
+                  problems))
+           ((and (consp found) (cddr decl) (not (equal (car found) declared)))
+            (push (format "%s: %s arglist is %S, declared %S"
+                          (car entry) fn (car found) declared)
+                  problems))))))
+    (when (called-interactively-p 'interactive)
+      (message "telega-decls-check: %d problem(s)" (length problems)))
+    (nreverse problems)))
+
 (provide 'telega-decls)
 
 ;;; telega-decls.el ends here
